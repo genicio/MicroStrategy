@@ -1,2 +1,12 @@
 Listar mesmo mês do ano anterior:
 ApplyComparison("#1 between #E0-100 and #E0-100";? prompt_mes_gz;Mês@Número)
+
+Mês(numerico YYYYMM) entre o mês do prompt e o primeiro mês do trimestre
+ApplyComparison("#1 between TRUNC(#E0/100-1)*100+3*(ceil(((#E0-TRUNC(#E0/100)*100))/3))-2   and #E0-100";? prompt_mes_gz;Mês@Número)
+
+Mês(numerico YYYYMM) entre Janeiro do ano anterior e o mês do prompt, do ano anterior
+ApplyComparison("#1 between TRUNC(#E0/100-1)*100+1   and #E0-100";? prompt_mes_gz;Mês@Número)
+
+M~Es anterior ao mês do prompt:
+ApplyComparison("#1 = to_number(to_char(add_months(to_date(concat(#E0,'01'),'YYYYMMDD'),-1),'YYYYMM'))";? prompt_mes_gz;Mês@Número)
+
